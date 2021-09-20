@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fronts.googleapis.com/css&family=Montserrat:regular,500,600,700,800&display=swap" rel="stylesheet" /> <!--подключаем шрифты текста через гуггл формс, &subset=cyrillic-ext эта приписка требуется если текст на кирилице-->
+        <link rel="stylesheet" href="css/style.css"> <!--подключаем наш файл со стилями прописав путь-->
+        <title>Relvise</title>
+    </head>
+    <body>
+        <div class="wrapper"> <!--все помещаем в этот контейнер всегда этим пользуемся тк это спасет от горизонтального артефакта при скролинге-->
+            <header class="header"> <!--семантичный тег хеадер мы используем для выделения чего либо например шапки сайта, в нашем случае это общая оболочка шапки нашего сайта-->
+                <div class="header__container _container"> <!--создаем внутри ограничевующий контейнер и добавляем к нему технический класс _контейнер который мы заверстали в ксс, таким образом на этот обьект будет действовать ограничение ширины и центровка-->
+                    <a href="" class="header__logo"> <!--создаем ссылку с логотипом-->
+                        Relvise
+                    </a>
+                    <nav class="header__menu menu"> <!--создаем меню шапки-->
+                        <ul class="menu__list"> <!--создаем меню лист где будут элементы нашего меню-->
+                            <li class="menu__item"> <!--ами элементы нашего меню-->
+                                <a href="" class="menu__link">
+                                    Home
+                                </a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="" class="menu__link">
+                                    Life
+                                </a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="" class="menu__link">
+                                    Studio
+                                </a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="" class="menu__link">
+                                    Contact
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <main class="page"> <!--так как шапка (хеадер) у нас надвисет над первым блоком, нам нужно создать общий блок всего контента майн-->
+                <div class="page__main-block main-block">
+                    <div class="main-block__container _container"> <!--создаем ограничивающий контейнер как в шапке сайта-->
+                        <div class="main-block__body"> <!--добавили оболочку чтобы не ограничевать каждый блок и не "лохматить бабушку" так как мы видим что этот блок не идет во всю ширину контента, а занимает тольно левую половину, проще это сделать сразу так чем каждый элемент потом по отдельности-->
+                            <h1 class="main-block__title"> <!--создали элемент с заголовком-->
+                                Finance and Consultancy Solution
+                            </h1>
+                            <div class="main-block__text"> <!--создали элемент с текстом -->
+                                We know how large objects will act, but things on a small scale.
+                            </div>
+                            <div class="main-block__buttons"> <!--создали элемент с кнопками -->
+                                <a href="" class="main-block__button main-block__button_orange">
+                                    Get Quote Now
+                                </a>
+                                <a href="" class="main-block__button main-block__button_border">
+                                    Learn More
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-block__image _ibg">
+                        <img src="img/mainblock/cover.jpg" alt="cover">
+                    </div>
+                </div>
+                <section class="page__service service">
+                    <div class="service__container _container">
+                        <div class="service__body">
+                            <div class="service__column">
+                                <div class="service__item item-service">
+                                    <div class="item-service__icon">
+                                        <img src="img/services/01.svg" alt="01">
+                                    </div>
+                                    <h3 class="item-service__title">
+                                        Environmental Consulting
+                                    </h3>
+                                    <div class="item-service__text">
+                                        We focus on ergonomics and meeting you where you work. 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="service__column">
+                                <div class="service__item item-service">
+                                    <div class="item-service__icon">
+                                        <img src="img/services/02.svg" alt="02">
+                                    </div>
+                                    <h3 class="item-service__title">
+                                        Finance and consultancy 
+                                    </h3>
+                                    <div class="item-service__text">
+                                        Just type what's on your mind and we'll get you there. 
+                                    </div>
+                                </div>
+                            </div><div class="service__column">
+                                <div class="service__item item-service_green">
+                                    <div class="item-service__icon">
+                                        <img src="img/services/03.svg" alt="03">
+                                    </div>
+                                    <h3 class="item-service__title">
+                                        Financial Services Consulting
+                                    </h3>
+                                    <div class="item-service__text">
+                                        he quick fox jumps over the lazy dog 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="page__advantage advantage">
+                    <div class="advantage__container _container">
+                        <div class="advantage__header header-bloc"> <!--обратим внимание что заголовок у нас повторяется и на последующих блоках и мы этим модификатором в ссs будем подгонять к одному стилю сразу все заголовки в оставшихся блоках-->
+                            <h2 class="header-block__title">
+                                Designing Better Experience
+                            </h2>
+                            <div class="header-block__sub-title">
+                                Problems trying to resolve the conflict between the two major realms <br> of Classical physics: Newtonian mechanics 
+                            </div>
+                        </div>
+                        <div class="advantage__body">
+                            <div class="advantege__column">
+                                <div class="advantege__item">
+                                    <div class="advantege__icon">
+                                        <img src="img/advantege/01.svg" alt="01">
+                                    </div>
+                                    <div class="advantege__value">
+                                        972 +
+                                    </div>
+                                    <div class="advantege__text">
+                                        Consumer Products 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="advantege__column">
+                                <div class="advantege__item">
+                                    <div class="advantege__icon">
+                                        <img src="img/advantege/02.svg" alt="02">
+                                    </div>
+                                    <div class="advantege__value">
+                                        181 +
+                                    </div>
+                                    <div class="advantege__text">
+                                        Financial Services 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="advantege__column">
+                                <div class="advantege__item">
+                                    <div class="advantege__icon">
+                                        <img src="img/advantege/03.svg" alt="03">
+                                    </div>
+                                    <div class="advantege__value">
+                                        98%
+                                    </div>
+                                    <div class="advantege__text">
+                                        Environmental
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="advantege__column">
+                                <div class="advantege__item">
+                                    <div class="advantege__icon">
+                                        <img src="img/advantege/04.svg" alt="04">
+                                    </div>
+                                    <div class="advantege__value">
+                                        756 +
+                                    </div>
+                                    <div class="advantege__text">
+                                        Business & Finance  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            <footer class="footer">
+                подвал
+            </footer>
+        </div>
+        <script src="js/script.js"></script>
+    </body>
+</html>
