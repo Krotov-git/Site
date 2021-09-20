@@ -1,0 +1,510 @@
+/*  Обнуление */
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+ul,
+ol,
+li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+html,
+body {
+    height: 100%;
+    line-height: 1;
+    background: #fafafa;
+    font-size: 14px; /*устанавливаем размер шрифта по умолчанию*/
+    color: #252b42; /*устанавливаем цвет шрифта по умолчанию*/
+    font-weight: 500; 
+    font-family: Montserrat; /*уст. тип шрифта*/
+}
+/*----------------------------------------------------------------------------------------------------------------------*/
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /*это строка и строка выше как бы разграничивают блоки и позволяет нам прибить к нижу футтер (подвал)*/
+}
+/*--------------------------------------------------------------------------------------------------------------------------*/
+._container {
+    max-width: 1046px; /*ограничеваем ширину нашего контейнера с контестом сайта*/
+    padding: 0px 15px; /*исключаем прилипаеия контекста сайтя к границам экрана при уменшении размеров экрана, по 15пикселей слева и с права*/
+    margin: 0px auto;
+    box-sizing: content-box;
+}
+/*--------------------------------------------------------------------------------------------------------------------------------*/
+._ibg {
+    position: relative;
+}
+
+.ibj img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+/* ---------HEADER (шапка)--------------------------------------------------------------------------------------------------------*/
+.header {
+    position: absolute; /* наша шапка надвесает над первым блоком поэтому мы делаем ее абсолютной */
+    width: 100%; /*ширину делаем 100%*/
+    left: 0;
+    top: 0;
+    z-index: 50; /*большой зет индекс помещает ее на первый план*/
+}
+
+.header__container {
+    display: flex;
+    min-height: 104px; /*высота нашего контейнера (смотрем в фигме)*/
+    align-items: center; /*выравневаем обьект по центру*/
+}
+
+@media (max-width: 479px) {
+    .header__container {
+        min-height: 70px; /*на маленьких мобилах мы также будем уменьшать размер шапки, при достижение определенного размера экрана*/
+    }
+}
+
+.header__logo {
+    font-size: 24px;
+    font-weight: 700;
+    color: inherit;
+}
+.header__menu {
+    margin: 0px 0px 0px 133px; /*устанавливает отступы ВАЖНО мы ставим отступы не для блока хеадер меню а для элемента хеадер меню, хотя это один и тот же обьект*/
+}
+
+@media (max-width: 992px) {
+    .header__menu {
+        margin: 0px 0px 0px 80px; /*эта штука позволяет нам при достижение определенной ширины экрана (например как сдесь 992px)в зависимости от устройства менять рстояние отступа в нашем случае логотипа от элементов меню, те когда экран будет уменьшен до определенной ширины, автоматически уменьшеться отступ между логотипом и элементами меню*/
+    }
+}
+
+@media (max-width: 767px) {
+    .header__menu {
+        margin: 0px 0px 0px 40px; /*эта штука позволяет нам при достижение определенной ширины экрана в зависимости от устройства менять рстояние отступа в нашем случае логотипа от элементов меню, те когда экран будет уменьшен до определенной ширины, автоматически уменьшеться отступ между логотипом и элементами меню*/
+    }
+}
+
+@media (max-width: 479px) {
+    .header__menu {
+        margin: 0px 0px 0px 20px; /*эта штука позволяет нам при достижение определенной ширины экрана в зависимости от устройства менять рстояние отступа в нашем случае логотипа от элементов меню, те когда экран будет уменьшен до определенной ширины, автоматически уменьшеться отступ между логотипом и элементами меню*/
+    }
+}
+
+.menu {
+    padding: 5px 0; /*если мы добавим больше элементов в меню и будем уменьшать экран адаптируя его под меньший размер устройства мы столкнемся с ситуацией что вырхний элемент может прилипнуть к вырхней части экрана, что бы этого не было мы делаем отступ безопасности в 5 пикселей сверху и снизу*/
+}
+
+.menu__list {
+    flex-wrap: wrap; /*так как могут быть добавлены еще элементы в меню нам нельзя что бы сдесь была какаято жесткость, поэтому добавляем эту строку, что позволит пунктам меню ломаться и они при уменьшении экрана будут вставать один по другой*/
+    display: flex; /*выстриваем элементы меню в ряд*/
+}
+
+.menu__item {
+}
+
+.menu__item:not(:last-child) {
+    margin: 0px 21px 0px 0px; /*отступы справа у всех обьектов меню кроме последнего (:not(:last-child))*/
+}
+
+.menu__link {
+    color: #737373;
+    font-weight: 600;
+    line-height: calc(24 / 14 * 100%); /*(макет / рамер шрифта * 100%)*/
+}
+
+@media (max-width: 479px) {
+    .menu__link {
+        font-size: 18px; /*при уменьшнии экраны мы с вами уменшаем отступы между логотипом и пунктами меню это мы сделали выше, но на мобильном устройстве при достижении маленького экрана будет сложно попадалть по элементом пальцем и мы увеличиваем размер элементов при достижении определенного размера экрана*/
+    }
+}
+/*---------PAGE (контент)------------------------------------------------------------------------------------------*/
+.page {
+    flex: 1 1 auto; /*этой строкой мы позволяем классу падж увеличиваться*/
+}
+
+.page__main-block {
+}
+
+.page__service {
+    position: relative;
+    z-index: 2; /*это делает наслоение этого элемента по вехр другого*/
+    margin: -111px 0px 0px 0px; /*именно этот отрицательный марджин позволяет нам сделать эти три карточки второго блока наплывающими на первый верхний блок и при этом все нижнии блоки подтянутся за ним, все другие варианты приведут к тому что образуется пробел между вторым блоком и остальными!!!*/
+}
+
+.page__advantage {
+}
+
+/*---------HEADER-BLOCK--------------------------------------------------------------------------------------------------*/
+.header-bloc {
+    text-align: center;
+    letter-spacing: 0.2px;
+}
+.header-block__title {
+    line-height: 142%;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.header-block__title:not(:last-child) {
+    margin: 0px 0px 10px 0px;
+}
+
+.header-block__sub-title {
+    line-height: 142%;
+    color: #737373;
+}
+
+@media (max-width: 992px) {
+    .header-block__title {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 767px) {
+    .header-block__title {
+        font-size: 30px;
+    }
+}
+
+/* ---------FOOTER (подвал)--------------------------------------------------------------------------------------------*/
+.footer {
+}
+/*---------MAIN-BLOCK---------------------------------------------------------------------------------------------------*/
+.main-block {
+    position: relative;
+}
+
+.main-block__container {
+}
+
+.main-block__body { /*нужно понимать что именно контент является размеро задающим звеном, изображение фоновое контент задает размер ритм звену*/
+    padding: 184px 0px 191px 0px;
+    position: relative; /*чтобы картинка не закрывала контент эт строка и нижняя*/
+    z-index: 2;
+    max-width: 400px; /*ограничитель по ширене нашего контента*/
+}
+
+/*по мере уменшения экрана до определенного размера, уменьшаем отступ заголовка шрифта первого блока сверху*/
+@media (max-width: 992px) {
+    .main-block__body {
+        padding: 120px 0px 191px 0px;
+    }
+}
+
+@media (max-width: 479px) {
+    .main-block__body {
+        padding: 115px 0px 160px 0px;
+    }
+}
+
+/*мы обращаемся ко всем обьектам боди первого уровня за это отвечает знак больше и, а * говорит что любой тег, и выставляем отступы для всех кроме последнего*/
+.main-block__body > *:not(:last-child) { 
+    margin: 0px 0px 35px 0px;
+}
+
+.main-block__title {
+    font-size: 58px;
+    line-height: calc(80 / 58 * 100%);
+    letter-spacing: 0.2px;
+    font-weight: 800;
+}
+
+/*уменшаем шрифт заголовка при достижении экраном определенного размера*/
+@media (max-width: 479px) {
+    .main-block__title {
+        font-size: 42px;
+    }
+}
+
+.main-block__text {
+    color: #737373;
+    font-size: 20px;
+    line-height: 150%;
+}
+
+/*сдесь опять же для лучшей читаемости текста при уменшении разрешения экрана и наползания текста на определенные области фона, мы затемняем текст что бы он лучше читался*/
+@media (max-width: 479px) {
+    .main-block__text {
+        color: #444444;
+    }
+}
+
+.main-block__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -10px 0;
+}
+
+.main-block__button {
+    border-radius: 37px;
+    display: flex;
+    min-height: 48px;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.2px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 150%;
+    padding: 5px 36px;
+    margin: 10px 0;
+}
+
+/*этим блоком и блоком снизу мы делаем кнопки во всю ширину экрана при определенном разрешение экрана*/
+@media (max-width: 479px) {
+    .main-block__button {
+        flex: 1 1 100%;
+    }
+}
+
+@media (min-width: 479px) {
+    .main-block__button:not(:last-child) {
+        margin-right: 10px;
+    }
+}
+
+.main-block__button:not(:last-child) {
+    margin-right: 10px;
+}
+
+.main-block__button_orange {
+    background: #ff7b47;
+    color: #fff;
+}
+
+.main-block__button_border {
+    color: #0d5c63;
+    border: 1px solid #0d5c63;
+}
+
+/*не желательно писать инлайновые стили кактинка у нас на фоне делаем ее абсолютной относительно майн-блока и там пишем релатив*/
+.main-block__image {
+    position: absolute; 
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+/*когд экран уменьшается, а на изображении есть нужный контент который несет смысловую нагрузку которая нам важна например люди, мы можем его зафиксировать*/
+@media (max-width: 1300px) { 
+    .main-block__image img {
+        object-position: right;
+    }
+} /*но у меня это почемуто сейчас не работает*/
+
+/*эта часть кода осветляет фоновое изображение при достижение экраном определенного рзмера, тк фон (картинка не однородна, то при уменшении экрана текст на ходит на определенную область и становиться плохо читаемым, мы высветляем фон (картинку) для большей читаемости шрифта)*/
+@media (max-width: 992px) {
+    .main-block__image {
+        opacity: 0.5;
+    }
+}
+ 
+/*--------------------SERVICE---block-2---------------------------------------------------------------------------*/
+.service {
+}
+
+.service__container {
+}
+
+.service__body {
+    
+}
+
+@media (min-width: 670px) {
+    .service__body { 
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0px -15px;
+    }
+}
+
+.service__column {
+    flex: 0 1 33.333%;
+}
+
+@media (min-width: 670px) {
+    .service__column {
+        padding: 0px 15px;
+    }
+}
+
+@media (max-width: 992px) {
+    .service__column {
+        flex: 0 1 50%;
+    }
+    .service__column:not(:last-child) {
+        margin: 0px 0px 30px 0px;
+    }
+    .service__column:last-child {
+        flex: 1 1 100%;
+    }
+}
+
+.service__item {
+    height: 100%;
+    box-shadow: 0px 13px 19px rgba(0, 0, 0, 0.07);
+    background-color: #fff;
+    padding: 35px;
+}
+
+@media (max-width: 479px) {
+    .service__item {
+        padding: 25px;
+    }
+}
+
+.item_service {
+}
+
+.item-service_green {
+    background-color: #0d5c63;
+}
+
+.item-service_green .item-service__title {
+    color: #fff;
+}
+
+.item-service_green .item-service__text {
+    color: #fff;
+}
+
+.item_service__icon {
+}
+
+.item-service__title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 133%;
+}
+
+.item-service__text {
+    color: #737373;
+    line-height: 142%;
+}
+
+/*--------------------SERVICE---block-3---------------------------------------------------------------------------*/
+.advantage {
+    padding: 80px 0;
+}
+
+@media (max-width: 992px) {
+    .advantege {
+        padding: 50px 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .advantege {
+        padding: 40px 0;
+    }
+}
+
+.advantage__container {
+}
+.advantage__header {
+    margin: 0px 0px 50px 0px;
+}
+
+@media (max-width: 767px) {
+    .advantage__header {
+        margin: 0px 0px 25px 0px;
+    }
+}
+
+.advantage__body {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -15px;
+}
+.advantege__column {
+    padding: 0px 15px;
+    margin: 0px 0px 30px 0px;
+    flex: 0 1 25%;
+}
+
+@media (max-width: 1020px) {
+    .advantege__column {
+        flex: 0 1 50%;
+    }
+}
+
+@media (max-width: 560px) {
+    .advantege__column {
+        flex: 0 1 100%
+    }
+}
+
+.advantege__item {
+    background-color: #fff;
+    padding: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.advantege__item > *:not(:last-child) {
+    margin: 0px 0px 10px 0px;
+}
+
+/*здесь мы профиксили разную высоту иконок, мы прибили все икони к низу и все стло красиво*/
+.advantege__icon {
+    height: 48px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.advantege__value {
+    font-size: 40px;
+    line-height: 142%;
+}
+.advantege__text {
+    letter-spacing: 0.1px;
+    color: #737373;
+    font-size: 16px;
+    line-height: 150%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
